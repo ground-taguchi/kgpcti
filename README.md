@@ -4,7 +4,7 @@
  - リポジトリのクローン  
  ※windowsの場合はUbuntu上にクローンする。MacはそのままでOK  
  WSL2の有効化・Ubuntuインストール参照  
- https://zenn.dev/na9/articles/ffe7b884fee7d2#5.-sail%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9%E3%81%AE%E8%A8%AD%E5%AE%9A
+https://zenn.dev/na9/articles/ffe7b884fee7d2
 
         git clone https://github.com/ground-taguchi/kgpcti.git
 
@@ -86,6 +86,11 @@
 
         sail down
 
+ - 注意点
+
+    DBはバックアップされたものを使用する前提だからマイグレーションは作ってない  
+    PHPMyAdminからDB「kgpcti」を選択し、bdstructure.sqlでバックアップをインポートする（構造のみでデータはさすがに空です）
+
 ## デバッグ
 
 デバッグ:
@@ -122,8 +127,8 @@ sailに最初から入ってるXdebugでデバッグできる
         - デバッガーが起動してるか確認(F5)
         - 適当なマイグレーションファイルを作成
         - 適当なポイントにブレークポイント設置
-        - sail debug migrate 実行
-            # sail artisan migrateではなくdebugで実行するのがポイント
+        - sail debug migrate 実行  
+            sail artisan migrateではなくdebugで実行するのがポイント
 
  - ブラウザアクセスのデバッグ:
     - デバッガーが起動してるか確認(F5)
